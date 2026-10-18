@@ -1,4 +1,58 @@
 ---
+const navItems = [
+	{ label: 'Formation', href: '#formation' },
+	{ label: 'Experience', href: '#experiences' },
+	{ label: 'Tools', href: '#skills' },
+	{ label: 'Courses', href: '#courses' },
+	{ label: 'Projects', href: '#projects' },
+	{ label: 'Contact', href: '#contact' },
+];
+
+const toolGroups = [
+	{ label: 'Languages', direction: 'forward', items: [{ name: 'HTML', mark: '</>', tone: 'orange' }, { name: 'CSS', mark: '#', tone: 'blue' }, { name: 'JavaScript', mark: 'JS', tone: 'yellow' }, { name: 'TypeScript', mark: 'TS', tone: 'blue' }] },
+	{ label: 'Frameworks', direction: 'reverse', items: [{ name: 'React', mark: '⚛', tone: 'cyan' }, { name: 'Astro', mark: '✦', tone: 'purple' }, { name: 'Node', mark: 'N', tone: 'green' }, { name: 'Tailwind', mark: '~', tone: 'cyan' }] },
+	{ label: 'Creative tools', direction: 'forward', items: [{ name: 'Figma', mark: 'F', tone: 'red' }, { name: 'Canva', mark: 'C', tone: 'blue' }, { name: 'Notion', mark: 'N', tone: 'black' }, { name: 'Procreate', mark: 'P', tone: 'pink' }] },
+	{ label: 'Other skills', direction: 'reverse', items: [{ name: 'GitHub', mark: '◈', tone: 'black' }, { name: 'Motion', mark: '✧', tone: 'pink' }, { name: 'Branding', mark: 'B', tone: 'red' }, { name: 'Research', mark: '⌕', tone: 'green' }] },
+];
+
+const languages = [
+	{ number: '01', name: 'Portuguese', level: 'NATIVE', fill: '100%' },
+	{ number: '02', name: 'English', level: 'FLUENT', fill: '88%' },
+	{ number: '03', name: 'Your language', level: 'ADD LEVEL', fill: '64%' },
+	{ number: '04', name: 'Your language', level: 'ADD LEVEL', fill: '42%' },
+];
+
+const contactLinks = [
+	{ label: 'LinkedIn', detail: 'LET\'S CONNECT', href: 'https://www.linkedin.com/in/your-handle', icon: 'in', tone: 'blue' },
+	{ label: 'Instagram', detail: 'SEE THE PIXELS', href: 'https://www.instagram.com/your-handle', icon: 'ig', tone: 'pink' },
+	{ label: 'Phone', detail: 'SAY HELLO', href: 'tel:+0000000000', icon: '☎', tone: 'green' },
+	{ label: 'Email', detail: 'SEND A QUEST', href: 'mailto:hello@nina.design', icon: '@', tone: 'purple' },
+];
+
+const waveItems = [
+	{ src: '/9.png', alt: 'Pixel sparkle', size: 'small', offset: -44, tilt: -8, scale: .72 },
+	{ src: '/8.png', alt: 'Pixel tulip', size: 'large', offset: -25, tilt: 7, scale: .56, mobileHide: true },
+	{ src: '/10.png', alt: 'Pixel strawberry', size: 'small', offset: 0, tilt: -5, scale: .62 },
+	{ src: '/15.png', alt: 'Pixel heart', size: 'large', offset: 28, tilt: -4, scale: .58 },
+	{ src: '/2.png', alt: 'Pixel bow', size: 'large', offset: 44, tilt: 4, scale: .4 },
+	{ src: '/1.png', alt: 'Pixel laptop', size: 'large', offset: 25, tilt: -8, scale: .42 },
+	{ src: '/6.png', alt: 'Pixel shimmer', size: 'small', offset: 4, tilt: 10, scale: .55 },
+	{ src: '/8.png', alt: 'Pixel tulip', size: 'large', offset: -27, tilt: -7, scale: .6, mobileHide: true },
+	{ src: '/10.png', alt: 'Pixel strawberry', size: 'small', offset: -44, tilt: 5, scale: .55 },
+	{ src: '/15.png', alt: 'Pixel heart', size: 'small', offset: -24, tilt: 8, scale: .48 },
+	{ src: '/2.png', alt: 'Pixel bow', size: 'large', offset: 5, tilt: -5, scale: .34 },
+	{ src: '/1.png', alt: 'Pixel laptop', size: 'small', offset: 34, tilt: 6, scale: .42 },
+	{ src: '/8.png', alt: 'Pixel tulip', size: 'small', offset: 46, tilt: -3, scale: .5 },
+	{ src: '/10.png', alt: 'Pixel strawberry', size: 'large', offset: 23, tilt: 5, scale: .58, mobileHide: true },
+	{ src: '/15.png', alt: 'Pixel heart', size: 'small', offset: -2, tilt: -8, scale: .43 },
+	{ src: '/2.png', alt: 'Pixel bow', size: 'small', offset: -26, tilt: 6, scale: .38 },
+];
+
+const projects = [
+	{ number: '01', title: 'Pink Pixel Studio', type: 'BRAND EXPERIENCE', text: 'A playful identity system made for digital products that want to feel unforgettable.', tags: ['Branding', 'UI Design'] },
+	{ number: '02', title: 'Quest Board', type: 'PRODUCT DESIGN', text: 'A cozy productivity interface that turns tiny daily wins into a game worth playing.', tags: ['UX/UI', 'Prototyping'] },
+	{ number: '03', title: 'Level Up Landing', type: 'FRONT-END BUILD', text: 'A responsive campaign page with motion, personality and a little bit of delightful chaos.', tags: ['Web Design', 'Creative Code'] },
+];
 ---
 
 <html lang="en">
@@ -8,9 +62,316 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content="A playful portfolio for a creative designer and front-end developer." />
+		<title>Nina // Player One</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="scanlines" aria-hidden="true"></div>
+		<div class="page-shell">
+			<header class="topbar">
+				<a class="brand" href="#top" aria-label="Back to top">
+					<span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+					<span>NINA<span class="brand-slash">//</span>PLAYER_01</span>
+				</a>
+				<button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">
+					<span class="menu-toggle-icon" aria-hidden="true">☰</span> MENU
+				</button>
+				<nav id="main-nav" aria-label="Main navigation">
+					{navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+				</nav>
+				<a class="status-pill" href="#contact"><span class="status-dot"></span> AVAILABLE FOR QUESTS</a>
+			</header>
+
+			<main id="top">
+				<section class="hero section-grid" aria-labelledby="hero-title">
+					<div class="hero-copy">
+						<div class="eyebrow"><span class="eyebrow-icon">✦</span> CREATIVE PLAYER PROFILE <span class="eyebrow-line"></span> v. 2026</div>
+						<h1 id="hero-title">I make the web<br /><span class="pink-text">feel like a game.</span></h1>
+						<p class="typing-line"><span class="prompt">&gt;</span> <span id="typed-text">designer, developer, dreamer</span><span class="caret">▋</span></p>
+						<p class="hero-intro">Hi, I'm Nina — a creative mind turning interfaces, ideas and pixels into experiences people want to stay in.</p>
+						<div class="hero-actions">
+							<a class="pixel-button primary" href="#projects"><span>PLAY MY WORK</span><span class="button-arrow">↗</span></a>
+							<a class="pixel-button ghost" href="#about"><span>MEET THE PLAYER</span><span class="button-arrow">↓</span></a>
+						</div>
+						<div class="hero-stats" aria-label="Quick profile stats">
+							<div><strong>03+</strong><span>years<br />creating</span></div>
+							<div><strong>24</strong><span>side<br />quests</span></div>
+							<div><strong>∞</strong><span>curiosity<br />points</span></div>
+						</div>
+					</div>
+					<div class="hero-visual">
+						<div class="orbit orbit-one"></div>
+						<div class="orbit orbit-two"></div>
+						<div class="portrait-frame">
+							<div class="portrait-label">PLAYER PHOTO <span>● ONLINE</span></div>
+							<div class="portrait-wrap">
+								<div class="portrait-fallback">N<span>✦</span></div>
+														<img src="/IMG_7441.png" alt="Nina smiling" onerror="this.style.display='none'" />
+							</div>
+							<div class="portrait-footer"><span>NINA.B</span><span>HP 100/100</span></div>
+						</div>
+						<div class="level-badge"><span>LVL</span><strong>08</strong><em>CREATIVE<br />MAGE</em></div>
+						<img class="pixel-deco deco-laptop" src="/1.png" alt="" aria-hidden="true" />
+						<img class="pixel-deco deco-heart" src="/12.png" alt="" aria-hidden="true" />
+						<img class="pixel-deco deco-spark" src="/6.png" alt="" aria-hidden="true" />
+					</div>
+				</section>
+
+				<div class="wave-marquee" aria-label="Pixel parade" aria-hidden="true"><div class="wave-track">{[...waveItems, ...waveItems].map((item, index) => <span class={`wave-item ${item.size}`} style={`--wave-tilt: ${item.tilt}deg; --wave-scale: ${item.scale};`} data-wave-index={index} data-mobile-hide={item.mobileHide ? 'true' : undefined}><img src={item.src} alt={item.alt} /></span>)}</div></div>
+
+				<section class="section intro-section" id="about" aria-labelledby="about-title">
+					<div class="section-heading"><span class="section-index">01</span><span class="section-kicker">PLAYER PROFILE</span><span class="heading-line"></span></div>
+					<div class="intro-layout">
+						<div><h2 id="about-title" class="section-title profile-title">A little bit<br /><span class="pink-text">soft. A lot<br />determined.</span></h2></div>
+						<div class="intro-note"><div class="note-pin">✦</div><p>I believe the best digital experiences are equal parts useful, surprising and unmistakably human.</p><span class="note-signature">— a note from the player</span></div>
+						<div class="intro-copy"><p>I'm a multidisciplinary creative who loves bringing structure to big ideas and sparkle to the small details. I work across visual design, front-end development and creative direction.</p><p>My favorite projects live somewhere between a polished product and a tiny world you want to explore.</p><a class="text-link" href="#contact">LET'S MAKE SOMETHING CUTE <span>→</span></a></div>
+					</div>
+				</section>
+
+				<section class="section" id="experiences" aria-labelledby="journey-title">
+					<div class="section-heading"><span class="section-index">02</span><span class="section-kicker">SAVE FILE // JOURNEY</span><span class="heading-line"></span></div>
+					<div class="section-title-row"><h2 id="journey-title" class="section-title journey-title">My player <span class="pink-text">journey</span></h2><span class="section-caption">XP GAINED THROUGH CURIOSITY</span></div>
+					<div class="journey-grid">
+						<div class="timeline">
+							<div class="timeline-item current"><span class="timeline-dot"></span><span class="timeline-year">2024 — NOW</span><div><h3>Creative Designer & Front-end Developer</h3><p>Making thoughtful, expressive digital experiences from first sketch to final pixel.</p><span class="mini-tag">MAIN QUEST</span></div></div>
+							<div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2022 — 2024</span><div><h3>Visual Designer</h3><p>Building identities, campaigns and interfaces with a detail-obsessed little team.</p><span class="mini-tag">CO-OP MODE</span></div></div>
+							<div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2020 — 2022</span><div><h3>Design Student</h3><p>Learning to turn “what if?” into a visual language people can feel.</p><span class="mini-tag">ORIGIN STORY</span></div></div>
+						</div>
+						<div class="education-card pixel-card" id="formation"><div class="card-top"><span>EDUCATION</span><span>ITEM 001</span></div><img src="/3.png" alt="Pixel art book" /><div><h3>Design & Digital Media</h3><p>Graduated with a soft spot for typography, interaction and storytelling.</p></div><div class="card-bar"><span></span></div><small>KNOWLEDGE METER: 87%</small></div>
+					</div>
+				</section>
+
+				<section class="section" id="skills" aria-labelledby="skills-title">
+					<div class="section-heading"><span class="section-index">03</span><span class="section-kicker">INVENTORY // LOADOUT</span><span class="heading-line"></span></div>
+					<div class="section-title-row"><h2 id="skills-title" class="section-title inventory-title">Tools in my <span class="pink-text">inventory</span></h2><span class="section-caption">EQUIPPED & READY</span></div>
+					<div class="skills-layout"><div class="tool-marquee-panel">{toolGroups.map((group) => <div class="tool-group"><div class="tool-group-label"><span>{group.label}</span><b>///</b></div><div class={`tool-marquee ${group.direction}`}><div class="tool-track">{[...group.items, ...group.items, ...group.items, ...group.items].map((tool) => <div class="tool-chip"><span class={`tool-logo ${tool.tone}`}>{tool.mark}</span><span>{tool.name}</span></div>)}</div></div></div>)}</div><div class="skill-card"><div class="skill-card-header"><span>SKILL TREE</span><span class="blink">● LIVE</span></div><div class="skill-ring"><span>DESIGN<br /><strong>+CODE</strong></span></div><p>Curious by default.<br />Always learning.</p><img src="/14.png" alt="" aria-hidden="true" /></div></div>
+					<div class="languages-block"><div class="languages-heading"><span>LANGUAGE PACK</span><span>4 SLOTS READY</span></div><div class="language-grid">{languages.map((language) => <div class="language-card"><div class="language-top"><span>{language.number}</span><span>XP</span></div><h3>{language.name}</h3><div class="language-meter"><span style={`width: ${language.fill}`}></span></div><div class="language-bottom"><span>{language.level}</span><b>{language.fill}</b></div></div>)}</div></div>
+				</section>
+
+				<section class="section courses-section" id="courses" aria-labelledby="courses-title">
+					<div class="section-heading"><span class="section-index">04</span><span class="section-kicker">UNLOCKED ACHIEVEMENTS</span><span class="heading-line"></span></div>
+					<div class="section-title-row"><h2 id="courses-title" class="section-title xp-title">Tiny wins, <span class="pink-text">big XP</span></h2><span class="section-caption">CERTIFICATE COLLECTION</span></div>
+					<div class="achievement-grid"><div class="achievement"><span class="achievement-icon">✦</span><div><small>ACHIEVEMENT UNLOCKED</small><h3>Front-end Foundations</h3><p>Responsive interfaces · 2024</p></div><span class="check">✓</span></div><div class="achievement"><span class="achievement-icon">♡</span><div><small>ACHIEVEMENT UNLOCKED</small><h3>Design Systems 101</h3><p>Scalable visual language · 2023</p></div><span class="check">✓</span></div><div class="achievement"><span class="achievement-icon">✧</span><div><small>ACHIEVEMENT UNLOCKED</small><h3>Creative Coding Lab</h3><p>Motion & interaction · 2023</p></div><span class="check">✓</span></div></div>
+				</section>
+
+				<section class="section projects-section" id="projects" aria-labelledby="projects-title">
+					<div class="section-heading"><span class="section-index">05</span><span class="section-kicker">QUEST LOG // SELECTED WORK</span><span class="heading-line"></span></div>
+					<div class="section-title-row"><h2 id="projects-title" class="section-title projects-title"><span class="projects-title-main">Things I've</span> <span class="pink-text">made</span></h2><span class="section-caption">CLICK TO INSPECT</span></div>
+					<div class="project-grid">{projects.map((project) => <article class="project-card"><div class="project-image"><span class="project-number">{project.number}</span><div class="project-placeholder" aria-label={`Screenshot slot for ${project.title}`}><span class="placeholder-icon" aria-hidden="true">▧</span><span class="placeholder-label">SCREENSHOT SLOT</span><span class="placeholder-note">ADD IMAGE LATER</span></div><span class="inspect">INSPECT ↗</span></div><div class="project-info"><span class="project-type">{project.type}</span><h3>{project.title}</h3><p>{project.text}</p><div class="project-tags">{project.tags.map((tag) => <span>{tag}</span>)}</div></div></article>)}</div>
+				</section>
+
+				<section class="section contact-section" id="contact" aria-labelledby="contact-title">
+					<div class="contact-box"><div class="section-heading"><span class="section-index">06</span><span class="section-kicker">OPEN INVITE // CONTACT</span><span class="heading-line"></span></div><h2 id="contact-title" class="section-title contact-title">Have a quest<br /><span class="pink-text">for me?</span></h2><p class="contact-intro"><span class="contact-prompt">&gt;</span> <span id="contact-typed-text">Tell me what you're building, dreaming or getting stuck on.</span><span class="contact-caret" aria-hidden="true">▋</span></p><a class="pixel-button primary contact-button" href="mailto:hello@nina.design"><span>SEND A MESSAGE</span><span class="button-arrow">↗</span></a><div class="contact-grid">{contactLinks.map((link) => <a class="contact-link-card" href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}><span class={`contact-link-icon ${link.tone}`}>{link.icon}</span><span><strong>{link.label}</strong><small>{link.detail}</small></span><b>↗</b></a>)}</div><div class="contact-links"><a href="mailto:hello@nina.design">hello@nina.design</a><span>·</span><a href="#top">back to top ↑</a></div></div>
+				</section>
+			</main>
+
+			<footer><span>© 2026 NINA.B — MADE WITH ✦ & TOO MUCH COFFEE</span><span>PLAYER STATUS: <b>ONLINE</b></span></footer>
+		</div>
+
+		<script>
+			const typed = document.querySelector('#typed-text');
+			const phrases = ['designer, developer, dreamer', 'pixel perfectionist', 'your next creative co-op'];
+			let phraseIndex = 0;
+			let charIndex = phrases[0].length;
+			let deleting = true;
+			function typeLoop() {
+				if (!typed) return;
+				const phrase = phrases[phraseIndex];
+				if (deleting) {
+					charIndex -= 1;
+					if (charIndex <= 0) { deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
+				} else {
+					charIndex += 1;
+					if (charIndex >= phrase.length) { deleting = true; }
+				}
+				typed.textContent = phrases[phraseIndex].slice(0, charIndex);
+				setTimeout(typeLoop, deleting ? 65 : 105);
+			}
+			setTimeout(typeLoop, 2500);
+
+			const contactTyped = document.querySelector('#contact-typed-text');
+			const contactPhrases = [
+				"Tell me what you're building, dreaming or getting stuck on.",
+				"I'm always down to talk ideas.",
+			];
+			let contactPhraseIndex = 0;
+			let contactCharIndex = contactPhrases[0].length;
+			let contactDeleting = true;
+			function contactTypeLoop() {
+				if (!contactTyped) return;
+				const phrase = contactPhrases[contactPhraseIndex];
+				if (contactDeleting) {
+					contactCharIndex -= 1;
+					if (contactCharIndex <= 0) { contactDeleting = false; contactPhraseIndex = (contactPhraseIndex + 1) % contactPhrases.length; }
+				} else {
+					contactCharIndex += 1;
+					if (contactCharIndex >= phrase.length) { contactDeleting = true; }
+				}
+				contactTyped.textContent = contactPhrases[contactPhraseIndex].slice(0, contactCharIndex);
+				setTimeout(contactTypeLoop, contactDeleting ? 65 : 105);
+			}
+			setTimeout(contactTypeLoop, 2500);
+
+			const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); }), { threshold: 0.12 });
+			document.querySelectorAll('.section, .project-card, .achievement, .timeline-item').forEach((element) => observer.observe(element));
+
+			const topbar = document.querySelector('.topbar');
+			const menuToggle = document.querySelector('.menu-toggle');
+			const mainNav = document.querySelector('#main-nav');
+			if (topbar && menuToggle && mainNav) {
+				menuToggle.addEventListener('click', () => {
+					const isOpen = topbar.classList.toggle('nav-open');
+					menuToggle.setAttribute('aria-expanded', String(isOpen));
+				});
+				mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+					topbar.classList.remove('nav-open');
+					menuToggle.setAttribute('aria-expanded', 'false');
+				}));
+			}
+
+			const wave = document.querySelector('.wave-marquee');
+			const isMobileWave = window.matchMedia('(max-width: 980px)').matches || window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+			const usePhoneWaveSpacing = window.matchMedia('(max-width: 620px)').matches;
+			const movingWaveItems = [...document.querySelectorAll('.wave-item')].filter((item, index) => !isMobileWave || (item.dataset.mobileHide !== 'true' && index % 4 !== 3));
+			const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const waveDuration = 30000;
+			const wavePoints = isMobileWave
+				? [[0, .52], [.24, .08], [.6, .9], [.82, .1], [1, .52]]
+				: [[0, .52], [.24, .08], [.5, .9], [.76, .1], [1, .52]];
+
+			function cubic(start, controlOne, controlTwo, end, progress) {
+				const inverse = 1 - progress;
+				return inverse ** 3 * start + 3 * inverse ** 2 * progress * controlOne + 3 * inverse * progress ** 2 * controlTwo + progress ** 3 * end;
+			}
+
+			function waveHeightAt(progress) {
+				for (let index = 0; index < wavePoints.length - 1; index += 1) {
+					const [startX, startY] = wavePoints[index];
+					const [endX, endY] = wavePoints[index + 1];
+					if (progress <= endX) {
+						const localProgress = (progress - startX) / (endX - startX);
+						return cubic(startY, startY, endY, endY, localProgress);
+					}
+				}
+				return wavePoints.at(-1)[1];
+			}
+
+			function buildWaveArcMap(width, height) {
+				const samples = 160;
+				const travel = width + 260;
+				const progresses = [0];
+				const distances = [0];
+				let total = 0;
+				let previousX = -130;
+				let previousY = 30 + waveHeightAt(0) * (height - 60);
+
+				for (let index = 1; index <= samples; index += 1) {
+					const progress = index / samples;
+					const x = -130 + progress * travel;
+					const y = 30 + waveHeightAt(progress) * (height - 60);
+					total += Math.hypot(x - previousX, y - previousY);
+					progresses.push(progress);
+					distances.push(total);
+					previousX = x;
+					previousY = y;
+				}
+
+				return { progresses, distances, total };
+			}
+
+			function progressAtArcDistance(distanceRatio, arcMap) {
+				const target = distanceRatio * arcMap.total;
+				let index = 1;
+				while (index < arcMap.distances.length && arcMap.distances[index] < target) index += 1;
+				const previousDistance = arcMap.distances[index - 1];
+				const segmentDistance = arcMap.distances[index] - previousDistance;
+				const segmentProgress = segmentDistance ? (target - previousDistance) / segmentDistance : 0;
+				return arcMap.progresses[index - 1] + (arcMap.progresses[index] - arcMap.progresses[index - 1]) * segmentProgress;
+			}
+
+			if (wave && movingWaveItems.length) {
+				let waveArcMap;
+				let waveArcMapKey = '';
+				const renderWave = (timestamp) => {
+					const width = wave.clientWidth;
+					const height = wave.clientHeight;
+					const elapsed = timestamp % waveDuration;
+					const travel = width + 260;
+					const currentWaveArcMapKey = `${width}:${height}`;
+					if (usePhoneWaveSpacing && currentWaveArcMapKey !== waveArcMapKey) {
+						waveArcMap = buildWaveArcMap(width, height);
+						waveArcMapKey = currentWaveArcMapKey;
+					}
+
+					movingWaveItems.forEach((item, index) => {
+						const phase = (elapsed / waveDuration + index / movingWaveItems.length) % 1;
+						const progress = usePhoneWaveSpacing ? progressAtArcDistance(phase, waveArcMap) : phase;
+						const nextProgress = (progress + .01) % 1;
+						const currentY = waveHeightAt(progress);
+						const nextY = waveHeightAt(nextProgress);
+						const curveAngle = Math.max(-24, Math.min(24, Math.atan2((nextY - currentY) * height, travel * .01) * 180 / Math.PI));
+						const x = -130 + progress * travel;
+						const y = 30 + currentY * (height - 60);
+						item.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) rotate(${curveAngle + Number.parseFloat(getComputedStyle(item).getPropertyValue('--wave-tilt'))}deg) scale(var(--wave-scale))`;
+					});
+
+					if (!reducedMotion) requestAnimationFrame(renderWave);
+				};
+				renderWave(0);
+			}
+		</script>
 	</body>
 </html>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+	:global(*) { box-sizing: border-box; }
+	:global(html) { scroll-behavior: smooth; }
+	:global(body) { margin: 0; background: #fff4fa; color: #542448; font-family: 'VT323', 'Courier New', monospace; font-size: 20px; overflow-x: hidden; }
+	:global(body)::before { content: ''; position: fixed; inset: 0; z-index: -2; background-image: linear-gradient(rgba(255, 120, 181, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 120, 181, .1) 1px, transparent 1px); background-size: 46px 46px; pointer-events: none; }
+	:global(body)::after { content: '✦  ✧  ·  ✦  ·  ✧  ✦  ·  ✧  ·  ✦  ✧'; position: fixed; top: 18px; left: 0; width: 100%; color: #f6b6d4; letter-spacing: 32px; white-space: nowrap; font-size: 15px; z-index: -1; opacity: .9; pointer-events: none; }
+	:global(a) { color: inherit; text-decoration: none; }
+	:global(::selection) { background: #d82079; color: #fff4fa; }
+	.page-shell { width: min(1360px, calc(100% - 64px)); margin: auto; position: relative; }
+	.scanlines { position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .06; background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, #8a124f 4px); }
+	:global(body), :global(a), :global(button), :global([role='button']) { cursor: url('/6.png') 8 8, auto; }
+	.topbar { position: sticky; top: 14px; z-index: 10; min-height: 72px; display: flex; align-items: center; gap: 28px; padding: 12px 18px; margin-top: 16px; background: rgba(255, 244, 250, .9); border: 2px solid #b71c64; box-shadow: 7px 7px 0 #f1a1c7; backdrop-filter: blur(10px); }
+	.brand { display: inline-flex; align-items: center; gap: 10px; color: #b71c64; font-family: 'Press Start 2P', monospace; font-size: 11px; white-space: nowrap; }
+	.menu-toggle { display: none; align-items: center; justify-content: center; gap: 8px; padding: 10px 11px; color: #b71c64; background: #ffe2f0; border: 2px solid #df3b88; box-shadow: 3px 3px 0 #f3a3c8; font-family: 'Press Start 2P', monospace; font-size: 8px; }
+	.menu-toggle-icon { font-size: 16px; line-height: .7; }
+	.brand-mark { display: grid; grid-template-columns: repeat(2, 6px); gap: 2px; transform: rotate(45deg); }.brand-mark span { width: 6px; height: 6px; background: #dd2c80; }.brand-mark span:nth-child(2), .brand-mark span:nth-child(3) { background: #ff9dc7; }
+	.brand-slash { color: #ec82b2; padding: 0 4px; }
+	nav { display: flex; justify-content: center; gap: 22px; flex: 1; font-family: 'Press Start 2P', monospace; font-size: 9px; color: #7b466b; }
+	nav a { position: relative; padding: 9px 0; transition: color .2s, transform .2s; } nav a:hover { color: #dc247a; transform: translateY(-2px); } nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 3px; background: #e72c83; transform: scaleX(0); transition: transform .2s; } nav a:hover::after { transform: scaleX(1); }
+	.status-pill { padding: 10px 12px; border: 2px solid #df3b88; color: #b71c64; background: #ffe2f0; font-family: 'Press Start 2P', monospace; font-size: 8px; white-space: nowrap; box-shadow: 3px 3px 0 #f3a3c8; }
+	.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #35c477; box-shadow: 0 0 0 4px #b9efcc; animation: pulse 1.5s infinite; }
+	.section-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; }.hero { min-height: 690px; align-items: center; padding: 90px 40px 86px; }
+	.eyebrow, .section-kicker, .project-type, .section-caption, .timeline-year, .mini-tag, .card-top, .skill-card-header, .contact-links { font-family: 'Press Start 2P', monospace; font-size: 9px; letter-spacing: .06em; }
+	.eyebrow { display: flex; align-items: center; gap: 12px; color: #bd2b70; margin-bottom: 28px; }.eyebrow-icon { color: #f04798; font-size: 18px; }.eyebrow-line, .heading-line { display: inline-block; width: 50px; height: 3px; background: #ee84b5; }
+	h1, h2, h3, p { margin-top: 0; } h1, h2, h3 { font-weight: 400; }.hero h1 { max-width: 780px; margin-bottom: 20px; color: #5d274d; font-family: 'Press Start 2P', monospace; font-size: clamp(37px, 5vw, 75px); line-height: 1.38; letter-spacing: -.07em; }.pink-text { color: #dc2679; }
+	.typing-line { min-height: 31px; margin-bottom: 25px; color: #d72c7d; font-size: 26px; }.prompt { color: #b71963; font-family: 'Press Start 2P', monospace; font-size: 15px; }.caret { animation: blink .8s steps(2) infinite; color: #d72c7d; }
+	.hero-intro { width: min(490px, 100%); color: #805873; font-size: 25px; line-height: 1.1; }.hero-actions { display: flex; flex-wrap: wrap; gap: 18px; margin: 35px 0 50px; }.pixel-button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 23px; border: 3px solid #a5145b; font-family: 'Press Start 2P', monospace; font-size: 10px; transition: transform .2s, box-shadow .2s; }.pixel-button:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 #541d43; }.pixel-button.primary { color: #fff9fd; background: #d92579; box-shadow: 5px 5px 0 #541d43; }.pixel-button.ghost { color: #a5145b; background: #fff4fa; box-shadow: 5px 5px 0 #f2a6c9; }.button-arrow { font-size: 19px; }
+	.hero-stats { display: flex; gap: 38px; }.hero-stats > div { display: flex; align-items: center; gap: 10px; color: #8e5d7d; font-size: 18px; line-height: .8; }.hero-stats strong { color: #d42175; font-family: 'Press Start 2P', monospace; font-size: 24px; }
+	.hero-visual { min-height: 520px; position: relative; display: grid; place-items: center; }.portrait-frame { position: relative; z-index: 2; width: min(365px, 72vw); padding: 12px; background: #e73688; border: 3px solid #85164e; box-shadow: 12px 12px 0 #f4a6c9, 18px 18px 0 #70234f; transform: rotate(4deg); }.portrait-label, .portrait-footer { display: flex; justify-content: space-between; color: #fff3fa; font-family: 'Press Start 2P', monospace; font-size: 8px; padding: 5px 5px 12px; }.portrait-label span { color: #ffe6f2; }.portrait-wrap { position: relative; height: 365px; overflow: hidden; background: linear-gradient(140deg, #faafd0, #fff0f7 48%, #d85091); border: 3px solid #8d275b; }.portrait-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }.portrait-fallback { display: grid; place-items: center; width: 100%; height: 100%; color: #fff5fa; font-family: 'Press Start 2P', monospace; font-size: 130px; background: radial-gradient(circle at 50% 33%, #ffd5e7 0 17%, transparent 17.5%), linear-gradient(145deg, #ef73ad 20%, #bb3d7d 20% 60%, #7e2758 60%); }.portrait-fallback span { position: absolute; right: 22%; top: 28%; font-size: 28px; color: #fff; }.portrait-footer { padding: 13px 5px 3px; font-size: 8px; }.orbit { position: absolute; border: 2px dashed #f39dc4; border-radius: 50%; transform-origin: center; }.orbit-one { width: 520px; height: 215px; transform: rotate(-29deg); animation: orbit-spin-one 22s linear infinite; }.orbit-two { width: 375px; height: 450px; transform: rotate(35deg); border-color: #f6bed7; animation: orbit-spin-two 29s linear infinite reverse; }.level-badge { position: absolute; z-index: 4; right: 2%; bottom: 28px; display: grid; grid-template-columns: 1fr 1fr; width: 135px; padding: 12px; background: #fff7fb; color: #ac185f; border: 3px solid #a5145b; box-shadow: 6px 6px 0 #ee86b7; transform: rotate(-8deg); animation: float 3.4s .4s ease-in-out infinite; }.level-badge span { font-family: 'Press Start 2P'; font-size: 9px; }.level-badge strong { font-family: 'Press Start 2P'; font-size: 27px; }.level-badge em { grid-column: 1/-1; margin-top: 8px; font-style: normal; font-family: 'Press Start 2P'; font-size: 7px; line-height: 1.5; }.pixel-deco { position: absolute; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(4px 5px 0 #9b2863); }.deco-laptop { width: 150px; left: -40px; top: 45px; animation: laptop-float 3.2s ease-in-out infinite; }.deco-heart { width: 95px; right: -22px; top: 14px; animation: float 3s ease-in-out infinite; }.deco-spark { width: 80px; left: -5px; bottom: 45px; animation: float 2.5s .3s ease-in-out infinite reverse; }
+	.marquee { overflow: hidden; border-top: 2px solid #f2a5c8; border-bottom: 2px solid #f2a5c8; padding: 12px 0; color: #c32a71; font-family: 'Press Start 2P', monospace; font-size: 10px; white-space: nowrap; }.marquee-track { animation: scroll 28s linear infinite; }.marquee span { color: #ef83b5; padding: 0 24px; }
+	.wave-marquee { position: relative; overflow: hidden; height: 224px; background: transparent; }.wave-track { position: relative; width: 100%; height: 100%; }.wave-item { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 88px; height: 88px; will-change: transform; }.wave-item.large { width: 116px; height: 116px; }.wave-item.small { width: 68px; height: 68px; }.wave-item img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(4px 5px 0 #d56d9e); }
+	.section { position: relative; padding: 125px 40px 35px; scroll-margin-top: 95px; opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }.section.is-visible { opacity: 1; transform: translateY(0); }.intro-section { padding-top: 118px; }.section-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 25px; color: #bd2b70; }.section-index { font-family: 'Press Start 2P'; color: #eb77ad; font-size: 13px; }.heading-line { width: auto; flex: 1; height: 2px; background: #f2b1ce; }.section-title-row { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 45px; }.section h2 { margin-bottom: 0; font-family: 'Press Start 2P', monospace; color: #5c2a4e; font-size: clamp(28px, 4vw, 54px); line-height: 1.35; letter-spacing: -.07em; }.section-caption { color: #c67a9e; white-space: nowrap; }.intro-layout { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 38px; align-items: start; }.intro-layout h2 { font-size: clamp(26px, 3.5vw, 46px); }.intro-note { position: relative; padding: 34px 30px 26px; margin-top: 28px; color: #7b4d6b; background: #ffe0ee; border: 2px solid #dc5b99; box-shadow: 8px 8px 0 #f3a2c6; transform: rotate(-2deg); }.note-pin { position: absolute; top: -21px; left: calc(50% - 13px); color: #c91d6d; font-size: 28px; }.intro-note p { font-size: 26px; line-height: 1; }.note-signature { color: #c52d73; font-size: 18px; }.intro-copy { color: #805b75; font-size: 23px; line-height: 1.1; padding-top: 15px; }.text-link { display: inline-block; margin-top: 10px; color: #c41a6d; font-family: 'Press Start 2P'; font-size: 9px; border-bottom: 2px solid #ee91bb; padding-bottom: 7px; }.text-link span { font-size: 18px; }
+	.section-title { position: relative; }.profile-title { font-size: clamp(42px, 5.4vw, 72px) !important; font-family: 'VT323', monospace !important; letter-spacing: .02em !important; line-height: .95 !important; text-shadow: 5px 5px 0 #ffd0e4; }.profile-title .pink-text { display: inline; padding: 0; background: none; transform: none; text-decoration: underline; text-decoration-thickness: 5px; text-decoration-color: #f58eb9; text-underline-offset: 8px; }.journey-title { padding-left: 0; font-size: clamp(27px, 3.1vw, 43px) !important; text-shadow: 4px 4px 0 #ffe0ed; }.journey-title::before, .journey-title::after { display: none; }.inventory-title { text-transform: uppercase; font-size: clamp(25px, 3vw, 42px) !important; text-shadow: 4px 4px 0 #ffc9df; }.inventory-title .pink-text { color: #9e195d; border-bottom: 5px dotted #df3a82; }.xp-title { font-family: 'VT323', monospace !important; font-size: clamp(42px, 5vw, 68px) !important; text-transform: uppercase; letter-spacing: .04em !important; color: #b71963 !important; transform: rotate(-1deg); }.xp-title .pink-text { color: #f15a9d; }.projects-title { text-transform: uppercase; letter-spacing: .08em !important; font-size: clamp(25px, 3.2vw, 43px) !important; text-decoration: underline; text-decoration-thickness: 4px; text-decoration-color: #f29bc1; text-underline-offset: 9px; }.projects-title .pink-text { color: #ce1e70; }.contact-title { font-size: clamp(37px, 4.8vw, 60px) !important; text-shadow: 6px 6px 0 #f6a8ca; letter-spacing: -.08em !important; }.contact-title .pink-text { display: inline-block; transform: rotate(2deg); }
+	#formation { scroll-margin-top: 125px; }
+	.journey-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 50px; }.timeline { border-left: 2px solid #ef9fc3; padding-left: 30px; }.timeline-item { position: relative; display: grid; grid-template-columns: 122px 1fr; gap: 20px; padding: 0 0 42px; opacity: 0; transform: translateX(-16px); transition: .55s ease; }.timeline-item.is-visible { opacity: 1; transform: translateX(0); }.timeline-dot { position: absolute; width: 13px; height: 13px; left: -38px; top: 1px; background: #f7b4d2; border: 3px solid #b21b63; }.current .timeline-dot { background: #df2c7f; box-shadow: 0 0 0 6px #ffcce2; }.timeline-year { color: #c0276e; line-height: 1.3; }.timeline-item h3 { margin: -4px 0 6px; color: #672a52; font-family: 'Press Start 2P'; font-size: 14px; line-height: 1.5; }.timeline-item p { max-width: 490px; margin-bottom: 10px; color: #8c627e; font-size: 22px; line-height: 1; }.mini-tag { display: inline-block; padding: 6px 8px; color: #bc206a; background: #ffdeed; font-size: 7px; }.pixel-card { padding: 22px; background: #fffafe; border: 3px solid #bd236b; box-shadow: 9px 9px 0 #f2abcd; }.card-top, .skill-card-header { display: flex; justify-content: space-between; color: #bc246d; font-size: 8px; }.education-card img { display: block; width: 130px; height: 130px; object-fit: contain; margin: 24px auto 10px; image-rendering: pixelated; }.education-card h3 { margin-bottom: 8px; color: #64294f; font-family: 'Press Start 2P'; font-size: 14px; line-height: 1.5; }.education-card p { color: #88617a; font-size: 21px; line-height: 1; }.card-bar { height: 13px; margin: 25px 0 10px; border: 2px solid #b52067; padding: 2px; }.card-bar span { display: block; width: 87%; height: 100%; background: #df327f; }.education-card small { color: #bd246d; font-family: 'Press Start 2P'; font-size: 7px; }
+	.skills-layout { display: grid; grid-template-columns: 1fr 280px; gap: 42px; }.tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }.tool-chip { display: flex; align-items: center; gap: 15px; padding: 18px 19px; color: #712e57; background: #fffafe; border: 2px solid #e7a1c2; box-shadow: 4px 4px 0 #f8c6dc; font-size: 25px; transition: transform .2s, border-color .2s; }.tool-chip:hover { transform: translate(-3px, -3px); border-color: #ca2874; }.tool-icon { display: grid; place-items: center; width: 30px; height: 30px; color: #e03180; background: #ffe0ed; font-size: 19px; }.tool-chip b { margin-left: auto; color: #dda1be; font-family: 'Press Start 2P'; font-size: 8px; }.skill-card { position: relative; min-height: 267px; padding: 20px; color: #fff4fa; background: #b91c67; border: 3px solid #6e1647; box-shadow: 8px 8px 0 #ed96bd; overflow: hidden; }.skill-card-header { color: #ffe4f0; }.blink { animation: blink 1.1s infinite; }.skill-ring { display: grid; place-items: center; width: 135px; height: 135px; margin: 20px auto 14px; text-align: center; border: 7px solid #f58bb8; border-right-color: #6e1647; border-bottom-color: #ffd0e4; border-radius: 50%; font-family: 'Press Start 2P'; font-size: 9px; line-height: 1.6; transform: rotate(-20deg); }.skill-ring span { transform: rotate(20deg); }.skill-ring strong { color: #ffd1e4; }.skill-card p { position: relative; z-index: 1; margin: 0; text-align: center; font-size: 21px; line-height: .9; }.skill-card img { position: absolute; width: 72px; right: -8px; bottom: -2px; image-rendering: pixelated; }
+	.courses-section { padding-top: 120px; }.achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }.achievement { display: flex; align-items: center; gap: 13px; min-height: 115px; padding: 18px; background: #fffafe; border: 2px solid #dd7bab; box-shadow: 5px 5px 0 #f7bed7; opacity: 0; transform: translateY(12px); transition: .5s ease; animation: achievement-hop 2.6s ease-in-out infinite; animation-play-state: paused; }.achievement.is-visible { opacity: 1; transform: translateY(0); animation-play-state: running; }.achievement:nth-child(2) { animation-delay: .28s; }.achievement:nth-child(3) { animation-delay: .56s; }.achievement-icon { display: grid; place-items: center; flex: 0 0 46px; height: 46px; color: #fff4fa; background: #df327f; font-size: 26px; }.achievement small { color: #cd4786; font-family: 'Press Start 2P'; font-size: 7px; }.achievement h3 { margin: 9px 0 5px; color: #65284f; font-family: 'Press Start 2P'; font-size: 11px; line-height: 1.5; }.achievement p { margin: 0; color: #90647f; font-size: 18px; }.check { align-self: flex-start; margin-left: auto; color: #e03280; font-family: 'Press Start 2P'; font-size: 13px; }
+	.projects-section { padding-top: 125px; }.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }.project-card { background: #fffafe; border: 2px solid #c32972; box-shadow: 7px 7px 0 #f0a2c5; opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s, box-shadow .2s; }.project-card.is-visible { opacity: 1; transform: translateY(0); }.project-card:hover { box-shadow: 11px 11px 0 #ef8eb8; transform: translate(-3px, -3px); }.project-image { position: relative; height: 230px; overflow: hidden; display: grid; place-items: center; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .16) 0 2px, transparent 2px 7px), linear-gradient(135deg, #ffd6e8, #ffc5dd); }.project-image::after { content: ''; position: absolute; inset: 15px; border: 1px solid rgba(194, 41, 114, .2); pointer-events: none; }.project-number { position: absolute; z-index: 2; top: 12px; left: 14px; color: #c32972; font-family: 'Press Start 2P'; font-size: 13px; }.project-placeholder { position: relative; z-index: 1; display: grid; place-items: center; gap: 9px; width: 68%; height: 68%; padding: 18px; color: #c32972; text-align: center; background: rgba(255, 240, 247, .48); animation: screenshot-pulse 3.8s ease-in-out infinite; }.project-card:nth-child(2) .project-placeholder { animation-delay: -1.2s; }.project-card:nth-child(3) .project-placeholder { animation-delay: -2.4s; }.placeholder-icon { display: grid; place-items: center; width: 43px; height: 43px; color: #fff5fa; background: #c5226f; font-family: 'Press Start 2P'; font-size: 22px; box-shadow: 4px 4px 0 #e98db5; }.placeholder-label, .placeholder-note { font-family: 'Press Start 2P'; }.placeholder-label { font-size: 8px; }.placeholder-note { color: #d26a99; font-size: 6px; }.inspect { position: absolute; z-index: 2; right: 13px; bottom: 12px; padding: 7px 8px; color: #fff5fa; background: #c5226f; font-family: 'Press Start 2P'; font-size: 7px; box-shadow: 0 0 0 2px rgba(255, 155, 200, .4), 0 0 10px rgba(222, 45, 126, .24); animation: inspect-attention 2.8s ease-in-out infinite; }.project-card:nth-child(2) .inspect { animation-delay: -.9s; }.project-card:nth-child(3) .inspect { animation-delay: -1.8s; }.project-card:hover .inspect, .project-card:focus-within .inspect { animation-play-state: paused; box-shadow: 0 0 0 3px rgba(255, 177, 211, .72), 0 0 18px rgba(222, 45, 126, .56); }.project-info { padding: 21px; }.project-type { color: #c22970; font-size: 8px; }.project-info h3 { margin: 12px 0 7px; color: #65284f; font-family: 'Press Start 2P'; font-size: 16px; line-height: 1.4; }.project-info p { min-height: 66px; color: #89627b; font-size: 21px; line-height: 1; }.project-tags { display: flex; gap: 7px; flex-wrap: wrap; }.project-tags span { padding: 6px 8px; color: #bd246c; background: #ffe2ef; font-family: 'Press Start 2P'; font-size: 7px; }
+	.contact-section { padding: 145px 40px 100px; }.contact-box { position: relative; overflow: hidden; padding: 48px 45px 38px; text-align: center; background: #ffe0ee; border: 3px solid #bd236b; box-shadow: 12px 12px 0 #f0a0c5; }.contact-box .section-heading { position: relative; z-index: 1; text-align: left; }.contact-box h2 { position: relative; z-index: 1; margin: 40px 0 20px; font-size: clamp(36px, 6vw, 76px); }.contact-intro { position: relative; z-index: 1; min-height: 30px; margin-bottom: 0; color: #86536f; font-size: 25px; line-height: 1; }.contact-prompt { color: #b71963; font-family: 'Press Start 2P'; font-size: 15px; }.contact-caret { color: #d72c7d; animation: blink .8s steps(2) infinite; }.contact-button { position: relative; z-index: 1; margin: 24px 0; }.contact-links { position: relative; z-index: 1; display: flex; justify-content: center; gap: 12px; color: #bb276d; font-size: 8px; }.contact-links a { border-bottom: 1px solid #dc6a9d; }.contact-grid { z-index: 1; }
+	.tool-marquee-panel { min-width: 0; }.tool-group { margin-bottom: 19px; }.tool-group:last-child { margin-bottom: 0; }.tool-group-label { display: flex; justify-content: space-between; align-items: center; padding: 0 3px 7px; color: #be3273; font-family: 'Press Start 2P'; font-size: 8px; }.tool-group-label b { color: #ec9ec0; letter-spacing: 4px; }.tool-marquee { position: relative; overflow: hidden; padding: 5px 0 9px; border-top: 2px solid #f0b0cc; border-bottom: 2px solid #f0b0cc; }.tool-track { display: flex; width: max-content; gap: 12px; animation: tool-scroll 28s linear infinite; will-change: transform; }.tool-marquee.reverse .tool-track { animation-name: tool-scroll-reverse; }.tool-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; min-width: 126px; padding: 10px 13px; color: #6d2d55; background: #fffafe; border: 2px solid #e7a1c2; box-shadow: 4px 4px 0 #f8c6dc; font-size: 21px; white-space: nowrap; transition: transform .2s, border-color .2s; }.tool-chip:hover { transform: translateY(-3px); border-color: #ca2874; }.tool-logo { display: grid; place-items: center; width: 30px; height: 30px; color: #fffafe; border-radius: 5px; font-family: 'Press Start 2P'; font-size: 9px; }.tool-logo.orange { background: #e86f35; }.tool-logo.blue { background: #3277d0; }.tool-logo.yellow { color: #4b3d11; background: #f1d43d; }.tool-logo.cyan { background: #25a6c7; }.tool-logo.purple { background: #8e47cf; }.tool-logo.green { background: #3b9f61; }.tool-logo.red { background: #db4274; }.tool-logo.black { background: #3d2942; }.tool-logo.pink { background: #e56eaa; }
+	.languages-block { margin-top: 45px; padding-top: 20px; border-top: 2px dashed #f0b0cc; }.languages-heading { display: flex; justify-content: space-between; margin-bottom: 15px; color: #c1447c; font-family: 'Press Start 2P'; font-size: 8px; }.languages-heading span:last-child { color: #d993b2; }.language-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }.language-card { padding: 16px; background: #fffafe; border: 2px solid #e7a1c2; box-shadow: 4px 4px 0 #f8c6dc; }.language-top, .language-bottom { display: flex; justify-content: space-between; color: #d38bad; font-family: 'Press Start 2P'; font-size: 7px; }.language-card h3 { margin: 22px 0 16px; color: #6b2d55; font-family: 'Press Start 2P'; font-size: 11px; line-height: 1.5; }.language-meter { height: 10px; padding: 2px; border: 2px solid #c83d79; }.language-meter span { display: block; height: 100%; background: #e23c84; }.language-bottom { margin-top: 10px; color: #bd3b75; }.language-bottom b { color: #da8eb1; }
+	.contact-grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 920px; margin: 0 auto 30px; text-align: left; }.contact-link-card { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 14px 12px; color: #733051; background: rgba(255, 250, 254, .85); border: 2px solid #e6a0c1; box-shadow: 4px 4px 0 #f3b0ce; transition: transform .2s, border-color .2s, box-shadow .2s; }.contact-link-card:hover, .contact-link-card:focus-visible { transform: translate(-3px, -3px); border-color: #c12470; box-shadow: 7px 7px 0 #e889b5; }.contact-link-icon { display: grid; place-items: center; flex: 0 0 34px; height: 34px; color: #fff7fb; background: #ca3a78; font-family: 'Press Start 2P'; font-size: 9px; transform-origin: center; animation: contact-icon-idle 3.8s ease-in-out infinite; }.contact-link-card:nth-child(2) .contact-link-icon { animation-delay: -.95s; }.contact-link-card:nth-child(3) .contact-link-icon { animation-delay: -1.9s; }.contact-link-card:nth-child(4) .contact-link-icon { animation-delay: -2.85s; }.contact-link-card:hover .contact-link-icon, .contact-link-card:focus-visible .contact-link-icon { animation: contact-icon-pop .45s steps(2, end); }.contact-link-icon.blue { background: #3675b9; }.contact-link-icon.pink { background: #d55091; }.contact-link-icon.green { background: #4b9b69; }.contact-link-icon.purple { background: #8855b6; }.contact-link-card strong, .contact-link-card small { display: block; }.contact-link-card strong { color: #69284f; font-family: 'Press Start 2P'; font-size: 9px; }.contact-link-card small { margin-top: 7px; color: #c05b88; font-family: 'Press Start 2P'; font-size: 6px; white-space: nowrap; }.contact-link-card > b { margin-left: auto; color: #d2397c; font-size: 18px; }
+	footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 40px 40px; color: #b87498; font-family: 'Press Start 2P'; font-size: 8px; border-top: 2px solid #f0b1cb; } footer b { color: #d12575; }
+	@keyframes blink { 50% { opacity: 0; } } @keyframes pulse { 50% { transform: scale(.72); opacity: .7; } } @keyframes float { 50% { transform: translateY(-15px) rotate(7deg); } } @keyframes laptop-float { 0%, 100% { transform: translateY(0) rotate(-10deg); } 50% { transform: translateY(-18px) rotate(-6deg); } } @keyframes screenshot-pulse { 0%, 100% { opacity: .72; transform: scale(.98); } 50% { opacity: 1; transform: scale(1); } } @keyframes achievement-hop { 0%, 8.8%, 100% { transform: translateY(0); } 4.4% { transform: translateY(-9px); } } @keyframes contact-icon-idle { 0%, 75%, 100% { transform: translateY(0) rotate(0deg); } 82% { transform: translateY(-3px) rotate(-5deg); } 89% { transform: translateY(0) rotate(4deg); } } @keyframes contact-icon-pop { 0% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.16) rotate(-8deg); } 100% { transform: scale(1.04) rotate(4deg); } } @keyframes inspect-attention { 0%, 100% { box-shadow: 0 0 0 2px rgba(255, 155, 200, .4), 0 0 10px rgba(222, 45, 126, .24); } 50% { box-shadow: 0 0 0 3px rgba(255, 177, 211, .72), 0 0 18px rgba(222, 45, 126, .56); } } @keyframes scroll { to { transform: translateX(-50%); } } @keyframes tool-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } @keyframes tool-scroll-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+	@media (prefers-reduced-motion: reduce) { :global(html) { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; } }
+	@media (max-width: 980px) { .page-shell { width: 100vw; max-width: none; margin-left: 0; margin-right: 0; }.topbar { flex-wrap: wrap; gap: 12px; }.topbar nav { order: 3; flex-basis: 100%; justify-content: space-between; }.status-pill { margin-left: auto; }.section-grid, .journey-grid, .skills-layout { grid-template-columns: 1fr; }.hero { padding: 85px 15px 90px; }.hero-copy { order: 2; }.hero-visual { min-height: 500px; }.intro-layout { grid-template-columns: 1fr 1fr; }.intro-layout > div:first-child { grid-column: 1 / -1; }.skill-card { min-height: 290px; }.achievement-grid { grid-template-columns: 1fr; }.project-grid { grid-template-columns: 1fr 1fr; }.project-card:last-child { grid-column: 1 / -1; }.language-grid { grid-template-columns: repeat(2, 1fr); }.contact-grid { grid-template-columns: repeat(2, 1fr); }.wave-marquee { height: 205px; }.wave-item.large { width: 92px; height: 92px; }.wave-item.small { width: 54px; height: 54px; }.wave-item[data-mobile-hide='true'], .wave-item:nth-child(4n) { display: none; } }
+	@media (max-width: 760px) { .topbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; }.brand { min-width: 0; overflow: hidden; }.menu-toggle { display: inline-flex; grid-column: 2; }.status-pill { grid-column: 1 / -1; justify-self: start; margin-left: 0; }.topbar nav { grid-column: 1 / -1; order: initial; flex-basis: auto; display: none; flex-direction: column; align-items: stretch; gap: 0; padding-top: 6px; border-top: 2px dashed #efafd0; }.topbar.nav-open nav { display: flex; }.topbar nav a { padding: 12px 4px; border-bottom: 1px solid #f1bed6; }.topbar nav a:last-child { border-bottom: 0; }.topbar nav a::after { bottom: 0; } }
+	@media (max-width: 760px) { :global(html), :global(body) { width: 100%; max-width: 100%; min-width: 0; }.page-shell, main, footer { width: 100vw; max-width: none; min-width: 0; }.page-shell { margin-left: 0; margin-right: 0; }.wave-marquee { height: 205px; }.wave-item.large { width: 92px; height: 92px; }.wave-item.small { width: 54px; height: 54px; }.wave-item[data-mobile-hide='true'], .wave-item:nth-child(4n) { display: none; } }
+	@media (max-width: 620px) { :global(html), :global(body) { width: 100%; max-width: 100%; min-width: 0; }.page-shell, main, footer { width: 100vw; max-width: none; min-width: 0; }.page-shell { margin-left: 0; margin-right: 0; }.wave-item[data-mobile-hide='true'] { display: none; } :global(body) { font-size: 18px; }.topbar { top: 7px; margin-top: 8px; padding: 11px; }.brand { font-size: 8px; }.status-pill { font-size: 6px; padding: 8px 6px; } nav { gap: 9px; font-size: 7px; }.hero { padding: 70px 8px 52px; }.hero h1 { font-size: 31px; }.hero-intro { font-size: 22px; }.hero-stats { gap: 18px; }.hero-stats strong { font-size: 17px; }.hero-stats > div { font-size: 15px; }.hero-visual { min-height: 410px; }.portrait-frame { width: min(280px, 78vw); }.portrait-wrap { height: 285px; }.deco-laptop { width: 105px; left: -20px; }.deco-heart { width: 65px; right: -7px; }.deco-spark { width: 55px; }.level-badge { width: 112px; right: -10px; bottom: 20px; }.wave-marquee { height: 175px; }.wave-item.large { width: 92px; height: 92px; }.wave-item.small { width: 54px; height: 54px; }.wave-item:nth-child(4n) { display: none; }.section, .contact-section { padding: 85px 8px 20px; }.intro-section { padding-top: 58px; }.section-title-row { display: block; margin-bottom: 30px; }.section-caption { display: block; margin-top: 17px; font-size: 7px; }.section h2 { font-size: 27px; }.intro-layout { grid-template-columns: 1fr; }.intro-layout > div:first-child { grid-column: auto; }.intro-note { margin: 10px 8px 30px; }.timeline-item { display: block; }.timeline-year { display: block; margin-bottom: 12px; }.timeline-item h3 { font-size: 12px; }.achievement h3 { font-size: 10px; }.project-grid { grid-template-columns: 1fr; }.project-card:last-child { grid-column: auto; }.project-image { height: 210px; }.language-card { padding: 12px; }.language-card h3 { font-size: 9px; }.contact-box { padding: 35px 18px 28px; }.contact-intro { font-size: 21px; }.contact-link-card { padding: 12px 10px; }.contact-link-card strong { font-size: 8px; }.contact-link-card small { font-size: 5px; }.contact-links { flex-direction: column; align-items: center; gap: 8px; } footer { padding: 25px 8px; flex-direction: column; font-size: 7px; line-height: 1.5; } .projects-title { text-decoration: none; } .projects-title-main { display: block; padding-bottom: 0; margin-bottom: 13px; text-decoration: none; } .projects-title > .pink-text { display: block; } .profile-title .pink-text { text-underline-offset: 3px; } }
+	@media (hover: none) and (pointer: coarse) { :global(html), :global(body) { width: 100%; max-width: 100%; min-width: 0; overflow-x: hidden; }.page-shell { width: 96% !important; max-width: none !important; min-width: 0; margin-left: auto; margin-right: auto; }.page-shell main, .page-shell footer { width: 100% !important; max-width: none !important; min-width: 0; margin-left: 0; margin-right: 0; }.wave-marquee { height: 205px; }.wave-item.large { width: 92px; height: 92px; }.wave-item.small { width: 54px; height: 54px; }.wave-item[data-mobile-hide='true'], .wave-item:nth-child(4n) { display: none; } }
+</style>
